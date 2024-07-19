@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} Sınıflandırma Raporu {% endblock %}
+
+
+
+{% block content %}
+{% set type = "classifier" %}
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    Base Models
+                </div>
+                <div class="card-body">
+                    {% set owner = "base" %}
+                    {% for model in bases %}
+                        {% include 'classifier_eval_table.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    User Models
+                </div>
+                <div class="card-body">
+                    {% set owner = "user" %}
+                    {% for model in users %}
+                        {% include 'classifier_eval_table.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+
+{% endblock %}

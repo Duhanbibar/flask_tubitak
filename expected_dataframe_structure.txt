@@ -1,0 +1,18 @@
+    product_code  volume  test_function  total_working_cycle_power pulsation  function_type   buffle  thermal_conductivity  insulation_density  insulation_thickness  cooling_fan_power cooling_fan_type  cooling_fan_rpm  cavity_fan_power  cavity_fan_rpm  num_glass cavity_type   ventilation_channel  chimney   bracket_description
+0      A33703472    69.4      Cooklight                       2410         P  Multifunction  New ECO                0.0642                  33                    30                 12                R             1100                22            1800          2           F  Ventilation Channel         1  SP FIX MOTOR BRACKET
+1      A33703472    69.4      Cooklight                       2410         P  Multifunction  New ECO                0.0642                  33                    30                 12                R             1100                22            1800          2           F  Ventilation Channel         1  SP FIX MOTOR BRACKET
+2      A33703472    69.4      Cooklight                       2410         P  Multifunction  New ECO                0.0642                  33                    30                 12                R             1100                22            1800          2           F  Ventilation Channel         1  SP FIX MOTOR BRACKET
+3      A33703472    69.4      Cooklight                       2410         P  Multifunction  New ECO                0.0642                  33                    30                 12                R             1100                22            1800          2           F  Ventilation Channel         1  SP FIX MOTOR BRACKET
+4      A33703472    69.4      Cooklight                       2410         P  Multifunction  New ECO                0.0642                  33                    30                 12                R             1100                22            1800          2           F  Ventilation Channel         1  SP FIX MOTOR BRACKET
+5      A33703472    69.4      Cooklight                       2410         P  Multifunction  New ECO                0.0642                  33                    30                 12                R             1100                22            1800          2           F  Ventilation Channel         1  SP FIX MOTOR BRACKET
+6      A33703472    69.4      Cooklight                       2410         P  Multifunction  New ECO                0.0642                  33                    30                 12                R             1100                22            1800          2           F  Ventilation Channel         1  SP FIX MOTOR BRACKET
+7      A33703472    69.4  Multifunction                       2222         P  Multifunction  New ECO                0.0642                  33                    30                 12                R             1100                22            1800          2           F  Ventilation Channel         1  SP FIX MOTOR BRACKET
+
+
+Index(['product_code', 'volume', 'test_function', 'total_working_cycle_power',
+       'pulsation', 'function_type', 'buffle', 'thermal_conductivity',
+       'insulation_density', 'insulation_thickness', 'cooling_fan_power',
+       'cooling_fan_type', 'cooling_fan_rpm', 'cavity_fan_power',
+       'cavity_fan_rpm', 'num_glass', 'cavity_type', 'ventilation_channel',
+       'chimney', 'bracket_description'],
+      dtype='object')

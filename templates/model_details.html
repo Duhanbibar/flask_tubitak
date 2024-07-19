@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-header" id="heading{{ model.id }}">
+        <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ model.id }}" aria-expanded="true" aria-controls="collapse{{ model.id }}">
+                {{ model.name }}
+            </button>
+        </h5>
+    </div>
+
+    <div id="collapse{{ model.id }}" class="collapse" aria-labelledby="heading{{ model.id }}" data-parent="#accordion">
+
+        <div class="card-body">
+            {% if type == "classification" %}
+                {% include 'classifier_eval_table.html' %}
+            {% else %}
+                {% include 'regressor_eval_table.html' %}
+            {% endif %}
+
+            {% if owner == "user" %}
+                <form action="{{url_for('module2.retrain_model')}}"  method="POST">
+                    <input type="hidden" name="mode" value="{{ model.id }}">
+                    <button type="submit" class="btn btn-primary">Retrain Model</button>
+                </form>
+            {% endif %}
+        </div>
+
+        
+    </div>
+</div>

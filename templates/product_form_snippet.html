@@ -1,0 +1,189 @@
+<!-- templates/product_form_snippet.html -->
+<form action="{{ url_for('module3.tahmin') }}" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Tahmin Et</h2>
+            </div>
+        </div>
+        
+        <!-- Product Code -->
+        <div class="form-group row p-2">
+            <label for="product_code" class="col-sm-2 col-form-label">Product Code</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="product_code" name="product_code"required>
+            </div>
+        </div>
+        <!-- Measured Volume & Test Function -->
+        <div class="form-group row p-2">
+            <label for="volume" class="col-sm-2 col-form-label">Measured Volume</label>
+            <div class="col-sm-4">
+                <input type="number" step="0.1" class="form-control" id="volume" name="volume"required>
+            </div>
+            <label for="test_function" class="col-sm-2 col-form-label">Test Function</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="test_function" name="test_function"required>
+            </div>
+        </div>
+        <!-- For 230V Total Working Cycle Power & Pulsation -->
+        <div class="form-group row p-2">
+            <label for="total_working_cycle_power" class="col-sm-2 col-form-label">For 230V Total Working Cycle Power</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" id="total_working_cycle_power" name="total_working_cycle_power"required>
+            </div>
+            <label for="pulsation" class="col-sm-2 col-form-label">Pulsation</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="pulsation" name="pulsation" required>
+            </div>
+        </div>
+        <!-- Function Type & Buffle -->
+        <div class="form-group row p-2">
+            <label for="function_type" class="col-sm-2 col-form-label">Function Type</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="function_type" name="function_type" required>
+            </div>
+            <label for="buffle" class="col-sm-2 col-form-label">Buffle</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="buffle" name="buffle" required>
+            </div>
+        </div>
+        <!-- Insulation Desc. Kg/m³ & Thermal Conductivity -->
+        <div class="form-group row p-2">
+            <label for="insulation_density" class="col-sm-2 col-form-label">Insulation Density</label>
+            <div class="col-sm-4">
+                <input type="number" step="0.01" class="form-control" id="insulation_density" name="insulation_density" required>
+            </div>
+            <label for="insulation_thickness" class="col-sm-2 col-form-label">Insulation Thickness</label>
+            <div class="col-sm-4">
+                <input type="number" step="0.01" class="form-control" id="insulation_thickness" name="insulation_thickness" required>
+            </div>
+            <label for="thermal_conductivity" class="col-sm-2 col-form-label">Thermal Conductivity</label>
+            <div class="col-sm-4">
+                <input type="number" step="0.0001" class="form-control" id="thermal_conductivity" name="thermal_conductivity" required>
+            </div>
+        </div>
+        <!-- Cooling Fan Power, Type, RPM -->
+        <div class="row bg-info p-3 mb-3">
+            Cooling Fan
+        </div>
+        <div class="form-group row p-2">
+            <label for="cooling_fan_power" class="col-sm-2 col-form-label">Cooling Fan Power</label>
+            <div class="col-sm-3">
+                <input type="number" step="0.1" class="form-control" id="cooling_fan_power" name="cooling_fan_power" required>
+            </div>
+            <label for="cooling_fan_type" class="col-sm-2 col-form-label">Cooling Fan Type</label>
+            <div class="col-sm-2">
+                <select id="cooling_fan_type" name="cooling_fan_type" class="form-control">
+                    <option value="" >Select Type</option>
+                    <option value="T" >Tangetial Fan (T)</option>
+                    <option value="R" >Radial Fan (R)</option>
+                </select>
+            </div>
+            <label for="cooling_fan_rpm" class="col-sm-1 col-form-label">Cooling Fan RPM</label>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" id="cooling_fan_rpm" name="cooling_fan_rpm" required>
+            </div>
+        </div>
+        <!-- Cavity Fan RPM & Number of Glass -->
+        <div class="row bg-info p-3 mb-3">
+            Cavity
+        </div>
+        <div class="form-group row p-2">
+            <label for="cavity_fan_rpm" class="col-sm-2 col-form-label">Cavity Fan RPM</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" id="cavity_fan_rpm" name="cavity_fan_rpm" required>
+            </div>
+
+            <label for="cavity_fan_power" class="col-sm-2 col-form-label">Cavity Fan RPM</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" id="cavity_fan_power" name="cavity_fan_power" required>
+            </div>
+
+            <label for="num_glass" class="col-sm-2 col-form-label">Number of Glass</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" id="num_glass" name="num_glass" required>
+            </div>
+        </div>
+        <!-- Cavity Type & Ventilation Channel -->
+        <div class="form-group row p-2">
+            <label for="cavity_type" class="col-sm-2 col-form-label">Cavity Type</label>
+            <div class="col-sm-2">
+                <select id="cavity_type" name="cavity_type" class="form-control">
+                    <option value="" >Select Type</option>
+                    <option value="F">Flat (F)</option>
+                    <option value="E">Embossed (E)</option>
+                </select>
+            </div>
+            <label for="ventilation_channel" class="col-sm-2 col-form-label">Ventilation Channel</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="ventilation_channel" name="ventilation_channel" required>
+            </div>
+        </div>
+        <!-- Chimney -->
+        <div class="form-group row p-2">
+            <label for="chimney" class="col-sm-2 col-form-label">Chimney</label>
+            <div class="col-sm-4">
+                <select id="chimney" name="chimney" class="form-control" required>
+                    <option value="0" >No</option>
+                    <option value="1" >Yes</option>
+                </select>
+            </div>
+            <label for="bracket_description" class="col-sm-2 col-form-label">bracket_description</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="bracket_description" name="bracket_description" required>
+            </div>
+        </div>
+        <!-- Tahminci -->
+        <div class="row bg-info p-3 mb-3">
+            Tahminci
+        </div>
+        <div class="form-group row p-2">
+            <label for="tahminci" class="col-sm-2 col-form-label">Tahmin Biçimi</label>
+            <div class="col-sm-4">
+                <select id="tahminci" name="tahminci" class="form-control" required>
+                    <option value="Classification" > Sınıflandırma (A/A+) </option>
+                    <option value="Regression" > Regresyon ( EEI Consumption ) </option>
+                </select>
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="form-group row p-2">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#product_code').on('input', function() {
+            var product_code = $(this).val();
+            if (product_code.length === 9) {
+                $.ajax({
+                    url: '{{ url_for("api.get_product_data") }}',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({product_code: product_code}),
+                    success: function(response) {
+                        if (response.success) {
+                            // Fill in the form fields with the data from the response
+
+                            Object.keys(response.data).forEach(function(key) {
+                                $("#"+key).val(response.data[key])
+                            })
+                            console.log(response.data)
+                        } else {
+                            alert('No data found for this product code.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('AJAX Error:', status, error);
+                        alert('An error occurred while fetching the data.');
+                    }
+                });
+            }
+        });
+    });
+</script>

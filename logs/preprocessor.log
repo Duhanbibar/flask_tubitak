@@ -1,0 +1,7 @@
+Index(['product_code', 'volume', 'test_function', 'total_working_cycle_power',
+       'pulsation', 'function_type', 'buffle', 'thermal_conductivity',
+       'insulation_density', 'insulation_thickness', 'cooling_fan_power',
+       'cooling_fan_type', 'cooling_fan_rpm', 'cavity_fan_power',
+       'cavity_fan_rpm', 'num_glass', 'cavity_type', 'ventilation_channel',
+       'chimney', 'bracket_description'],
+      dtype='object')

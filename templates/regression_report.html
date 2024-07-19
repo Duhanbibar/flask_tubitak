@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} Regresyon Raporu {% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+    <div class="row">
+        <!-- Column for 'bases' models -->
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    Base Models
+                </div>
+                <div class="card-body">
+                    {% for model in bases %}
+                        {% include 'regressor_eval_table.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Column for 'users' models -->
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    User Models
+                </div>
+                <div class="card-body">
+                    {% for model in users %}
+                        {% include 'regressor_eval_table.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block title %}Model Eğitimi{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <!-- Classifiers Section -->
+        <div class="row w-100 p-3">
+            {% set type = "classification" %}
+            <div class=" w-100 accordion" id="classifiersAccordion">
+                <div class=" w-100">
+                    <div class="card-header" id="classifiersHeading">
+                        <row class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#classifiersCollapse" aria-expanded="true" aria-controls="classifiersCollapse">
+                                Classifiers
+                            </button>
+                        </row>
+                    </div>
+                    <div id="classifiersCollapse" class="collapse show" aria-labelledby="classifiersHeading" data-parent="#classifiersAccordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- Base Models -->
+                                    <div class="accordion" id="baseModelsAccordion">
+                                        <div class="card">
+                                            <div class="card-header" id="baseModelsHeading">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#baseModelsCollapse" aria-expanded="true" aria-controls="baseModelsCollapse">
+                                                        Base Models
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="baseModelsCollapse" class="collapse show" aria-labelledby="baseModelsHeading" data-parent="#baseModelsAccordion">
+                                                <div class="card-body">
+                                                    {% set owner = "base" %}
+                                                    {% for model in base_models.classification %}
+                                                        {% include 'model_details.html' %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <!-- User Models -->
+                                    <div class="accordion" id="userModelsAccordion">
+                                        <div class="card">
+                                            <div class="card-header" id="userModelsHeading">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#userModelsCollapse" aria-expanded="true" aria-controls="userModelsCollapse">
+                                                        User Models
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="userModelsCollapse" class="collapse show" aria-labelledby="userModelsHeading" data-parent="#userModelsAccordion">
+                                                <div class="card-body">
+                                                    {% set owner = "user" %}
+                                                    {% for model in user_models.classification %}
+                                                        {% include 'model_details.html' %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Regressors Section -->
+        <div class="row w-100 p-3">
+            <div class="accordion w-100" id="regressorsAccordion">
+                <div class="card w-100">
+                    <div class="card-header" id="regressorsHeading">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#regressorsCollapse" aria-expanded="true" aria-controls="regressorsCollapse">
+                                Regressors
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="regressorsCollapse" class="collapse show" aria-labelledby="regressorsHeading" data-parent="#regressorsAccordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <!-- Base Models -->
+                                    <div class="accordion" id="baseRegressorsAccordion">
+                                        <div class="card">
+                                            <div class="card-header" id="baseRegressorsHeading">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#baseRegressorsCollapse" aria-expanded="true" aria-controls="baseRegressorsCollapse">
+                                                        Base Models
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="baseRegressorsCollapse" class="collapse show" aria-labelledby="baseRegressorsHeading" data-parent="#baseRegressorsAccordion">
+                                                <div class="card-body">
+                                                    {% set type = "regression" %}
+                                                    {% set owner = "base" %}
+                                                    {% for model in base_models.regression %}
+                                                        {% include 'model_details.html' %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-5">
+                                    <!-- User Models -->
+                                    <div class="accordion" id="userRegressorsAccordion">
+                                        <div class="card">
+                                            <div class="card-header" id="userRegressorsHeading">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#userRegressorsCollapse" aria-expanded="true" aria-controls="userRegressorsCollapse">
+                                                        User Models
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="userRegressorsCollapse" class="collapse show" aria-labelledby="userRegressorsHeading" data-parent="#userRegressorsAccordion">
+                                                <div class="card-body">
+                                                    {% set owner = "user" %}
+                                                    {% for model in user_models.regression %}
+                                                        {% include 'model_details.html' %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spacer Column -->
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+{% endblock %}

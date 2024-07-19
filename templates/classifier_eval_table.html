@@ -1,0 +1,28 @@
+<table class="table table-bordered metrics-table">
+    <tbody>
+        <tr>
+            <th>{{model.name}}</th>
+            {% if model.prediction %}
+            <th class="bg-success">
+                {{model.prediction.0}}
+            </th>
+            {% endif %}
+        </tr>
+        <tr>
+            <td><strong>Accuracy:</strong></td>
+            <td>{{ model.metrics.accuracy }}</td>
+        </tr>
+        <tr>
+            <td><strong>Precision:</strong></td>
+            <td>{{ model.metrics.precision }}</td>
+        </tr>
+        <tr>
+            <td><strong>Recall:</strong></td>
+            <td>{{ model.metrics.recall }}</td>
+        </tr>
+        <tr>
+            <td><strong>F1 Score:</strong></td>
+            <td>{{ model.metrics.f1 }}</td>
+        </tr>
+    </tbody>
+</table>

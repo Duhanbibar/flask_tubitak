@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Ana Sayfa{% endblock %}
+
+
+{% block content %}
+        <h3 style="font-size: 35px;"></p> Enerji Verimlilik Etiketi Tahmin Modülüne Hoşgeldiniz</h3>
+
+        <div class="articles">
+
+            <article>
+                <h4>Veri Kaydet </h4>
+                <ul>
+                    <li><span class="time">Enerji Tüketim Test Sonucunuzu Kaydetme Sayfasıma Gitmek İçin Lütfen 'GİT'e Tıklayın</span></li>
+                    
+                </ul>
+                <a href="{{ url_for('module1.new_test')}}" class="show-btn">GİT</a>
+            </article>
+
+        </div>
+        <div class="articles">
+
+            <article>
+                <h4>Yeniden Eğit</h4>
+                <ul>
+                    <li><span class="time">Yeniden Eğitim Sayfasına Gitmek İçin Lütfen 'GİT'e Tıklayın</span></li>
+                    
+                </ul>
+                <a href="{{ url_for('module2.retrain_models')}}" class="show-btn">GİT</a>
+            </article>
+
+        </div>
+        <div class="articles">
+
+            <article>
+                <h4>Tahmin Et </h4>
+                <ul>
+                    <li><span class="time">Enerji Tüketimi Tahmin Sayfasına Gitmek İçin Lütfen 'GİT'e Tıklayın</span></li>
+                    
+                </ul>
+                <a href="{{ url_for('module3.tahmin')}}" class="show-btn">GİT</a>
+            </article>
+
+        </div>
+{% endblock %}
