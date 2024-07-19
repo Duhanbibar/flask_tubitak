@@ -1,5 +1,5 @@
 # flask_tubitak
-
+Built and Tested with Python 3.11.7
 
 # Dependencies
 pip install -r requirements.txt 
