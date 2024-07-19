@@ -14,6 +14,7 @@
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#classifiersCollapse" aria-expanded="true" aria-controls="classifiersCollapse">
                                 Classifiers
                             </button>
+                            <a href={{url_for("module2.retrain_classifiers")}} class="btn btn-link"> Retrain </a>
                         </row>
                     </div>
                     <div id="classifiersCollapse" class="collapse show" aria-labelledby="classifiersHeading" data-parent="#classifiersAccordion">
@@ -78,6 +79,7 @@
                         <h5 class="mb-0">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#regressorsCollapse" aria-expanded="true" aria-controls="regressorsCollapse">
                                 Regressors
+                                <a href={{url_for("module2.retrain_regressors")}} class="btn btn-link"> Retrain </a>
                             </button>
                         </h5>
                     </div>

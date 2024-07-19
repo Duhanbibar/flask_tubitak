@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request
 import pandas as pd
+from pickle_needs import *
 from loader import get_preprocessor,get_models
 
 # Create a Blueprint

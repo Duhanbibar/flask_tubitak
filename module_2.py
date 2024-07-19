@@ -1,6 +1,9 @@
 from flask import Blueprint, render_template,request,redirect,url_for
 from logger import Logger
+from pickle_needs import *
 from loader import get_models
+from model_builder import train_regressors,train_classifiers
+from model_builder import retrain_model as retrainer
 
 
 # Create a Blueprint
@@ -22,7 +25,19 @@ def retrain_models():
 
 @main.route("/retrain_model",methods = ["POST"])
 def retrain_model():
-    model = request.data
-    logger.log(model)
+    path = request.form.get("path")
+    type = request.form.get("type")
+    retrainer(path,type)
     return redirect(url_for("module2.retrain_models"))
+
+@main.route("/retrain_classifiers",methods = ["GET"])
+def retrain_classifiers():
+    train_classifiers()
+    return redirect(url_for("module2.retrain_models"))
+
+@main.route("/retrain_regressors",methods = ["GET"])
+def retrain_regressors():
+    train_regressors()
+    return redirect(url_for("module2.retrain_models"))
+
 

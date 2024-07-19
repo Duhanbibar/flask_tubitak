@@ -43,7 +43,7 @@ else:
 
         def get_table(self,as_df = False):
             df = pd.read_csv("data.csv").drop(["Unnamed: 0"],axis=1)
-            if not as_df:
+            if as_df:
                 return df
             rows = [row for row in df]
             return rows

@@ -1,10 +1,7 @@
-from joblib import load
+from joblib import load,dump
 import os
 from functools import wraps
-from sklearn.base import BaseEstimator, TransformerMixin,ClassifierMixin
-from sklearn.preprocessing import LabelEncoder
-
-
+from pickle_needs import *
 
 
 def singleton(cls):
@@ -35,6 +32,11 @@ class Loader:
         
         return self.loaded_files[absolute_path]
     
+    def change(self,path,object):
+        absolute_path = os.path.abspath(path)
+        self.loaded_files[absolute_path] = object
+        dump(object,absolute_path)
+
     def clear_cache(self):
         self.loaded_files = {}
         print("Cache cleared")

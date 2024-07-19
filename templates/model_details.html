@@ -18,7 +18,8 @@
 
             {% if owner == "user" %}
                 <form action="{{url_for('module2.retrain_model')}}"  method="POST">
-                    <input type="hidden" name="mode" value="{{ model.id }}">
+                    <input type="hidden" name="path" value="{{ model.path }}">
+                    <input type="hidden" name="type" value="{{ type }}">
                     <button type="submit" class="btn btn-primary">Retrain Model</button>
                 </form>
             {% endif %}

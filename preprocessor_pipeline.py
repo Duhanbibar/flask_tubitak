@@ -2,14 +2,13 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
-from sklearn.base import BaseEstimator, TransformerMixin
 from engine import get_table
 import joblib
-import pandas as pd
-import sys
-import numpy as np
 from loader import Loader
 from logger import Logger
+from pickle_needs import *
+
+
 
 """
 The preprocessor pipeline that will transform the dataframe into desired training data, details at: 
@@ -44,19 +43,9 @@ ventilation_channel_pipeline = Pipeline(
 ])
 
 columns_to_be_dropped = ["product_code"]
-
-class DropColumns(BaseEstimator, TransformerMixin):
-    def __init__(self, columns):
-        self.columns = columns
-
-    def fit(self, X, y=None):
-        return self
-
-    def transform(self, X):
-        return X.drop(columns=self.columns)
     
 
-columns_to_be_encoded = ['test_function','pulsation','buffle','cavity_type','bracket_description']
+columns_to_be_encoded = ['test_function','pulsation','buffle','cavity_type','bracket_description','function_type']
 
 onehot_encoder_transformer = Pipeline(
     steps = [
@@ -71,13 +60,15 @@ preprocessor = ColumnTransformer(
         ("Cooling Fan Type",cooling_fan_categorical_transformer,cooling_fan_categorical_columns),
         ("Cooling Fan Power and Cooling Fan RPM",cooling_fan_numeric_transformer,cooling_fan_numerical_columns),
         ("Other Categorical Columns To Be Encoded",onehot_encoder_transformer,columns_to_be_encoded)
-    ])
+    ],remainder="passthrough")
 
 
 db = get_table(as_df=True)
 X = db.drop(["energy_value","energy_class"],axis =1)
-
+print(X.shape)
 a = preprocessor.fit_transform(X)
+print(a.shape)
+
 joblib.dump(preprocessor,"preprocessors/preprocessor.joblib")
 
 loader = Loader()

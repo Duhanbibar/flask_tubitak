@@ -7,7 +7,6 @@ main = Blueprint('api', __name__,url_prefix="")
 
 @main.route("/get_product_data",methods = ["POST"])
 def get_product_data():
-    print("hi")
     data = request.get_json()
     product_code = str(data.get("product_code"))
     product_data = get_product_for_prediction(product_code)
