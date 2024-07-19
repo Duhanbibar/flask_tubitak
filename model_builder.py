@@ -213,10 +213,10 @@ def retrain_model(path,type):
     elif type == "regression":
         old_score = model["metrics"]["r2"]
         cloned.fit(X_train,y_train_values)
-        y_pred = cloned.predict(X_test)
-        score = r2_score(y_test_values,y_pred)
+        y_pred = cloned.predict(X_train)
+        score = r2_score(y_train_values,y_pred)
         model["model"] = cloned
-        model["metrics"] = regressor_report(cloned,X_test,y_test_values)
+        model["metrics"] = regressor_report(cloned,X_train,y_train_values)
 
     if score >= old_score:
         loader.change(path, model)
