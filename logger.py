@@ -24,5 +24,6 @@ class Logger:
                         print(data)
             else:
                 print(data)
+            sys.stdout = sys.__stdout__
           
 

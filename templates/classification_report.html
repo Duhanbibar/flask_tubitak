@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 {% block title %} Sınıflandırma Raporu {% endblock %}
 
-
-
 {% block content %}
 {% set type = "classifier" %}
 <div class="container-fluid mt-4">
@@ -10,7 +8,7 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-header">
-                    Base Models
+                    <b>Baz Modeller</b>
                 </div>
                 <div class="card-body">
                     {% set owner = "base" %}
@@ -23,7 +21,7 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-header">
-                    User Models
+                    <b>Yeniden Eğitilmiş Modeller</b>
                 </div>
                 <div class="card-body">
                     {% set owner = "user" %}
@@ -33,6 +31,6 @@
                 </div>
             </div>
         </div>
-        
-
+    </div>
+</div>
 {% endblock %}

@@ -1,4 +1,4 @@
-<table class="table table-bordered metrics-table">
+<table class="table table-bordered metrics-table" style="table-layout: fixed; width: 100%;">
     <tbody>
         <tr>
             <th>{{model.name}}</th>
@@ -9,20 +9,20 @@
             {% endif %}
         </tr>
         <tr>
-            <td><strong>Accuracy:</strong></td>
-            <td>{{ model.metrics.accuracy }}</td>
+            <td><strong>Doğruluk:</strong></td>
+            <td class="rounded">{{ model.metrics.accuracy }}</td>
         </tr>
         <tr>
-            <td><strong>Precision:</strong></td>
-            <td>{{ model.metrics.precision }}</td>
+            <td><strong>Kesinlik:</strong></td>
+            <td class="rounded">{{ model.metrics.precision }}</td>
         </tr>
         <tr>
-            <td><strong>Recall:</strong></td>
-            <td>{{ model.metrics.recall }}</td>
+            <td><strong>Duyarlılık:</strong></td>
+            <td class="rounded">{{ model.metrics.recall }}</td>
         </tr>
         <tr>
-            <td><strong>F1 Score:</strong></td>
-            <td>{{ model.metrics.f1 }}</td>
+            <td><strong>F1 Skoru:</strong></td>
+            <td class="rounded">{{ model.metrics.f1 }}</td>
         </tr>
     </tbody>
 </table>

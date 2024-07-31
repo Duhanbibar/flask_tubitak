@@ -1,33 +1,30 @@
-<table class="table table-bordered metrics-table">
+<table class="table table-bordered metrics-table" style="table-layout: fixed; width: 100%;">
     <tbody>
         <tr>
             <th>{{model.name}}</th>
             {% if model.prediction %}
-            <th class="bg-success">
-                {{model.prediction.0}}
+            <th class="bg-success text-center">
+                {{ '%.3f' | format(model.prediction.0) }}
             </th>
             {% endif %}
         </tr>
-    
+        <tr>
+            <td><strong>R²:</strong></td>
+            <td class="rounded">{{ model.metrics.r2 }}</td>
+        </tr>
         <tr>
             <td><strong>MSE:</strong></td>
-            <td>{{ model.metrics.mse }}</td>
+            <td class="rounded" >{{ model.metrics.mse }}</td>
         </tr>
-        <tr>
-            <td><strong>RMSE:</strong></td>
-            <td>{{ model.metrics.rmse }}</td>
-        </tr>
+       
         <tr>
             <td><strong>MAE:</strong></td>
-            <td>{{ model.metrics.mae }}</td>
+            <td class="rounded" >{{ model.metrics.mae }}</td>
         </tr>
         <tr>
             <td><strong>MAPE:</strong></td>
-            <td>{{ model.metrics.mape }}</td>
+            <td class="rounded">{{ model.metrics.mape }}</td>
         </tr>
-        <tr>
-            <td><strong>R²:</strong></td>
-            <td>{{ model.metrics.r2 }}</td>
-        </tr>
+        
     </tbody>
 </table>

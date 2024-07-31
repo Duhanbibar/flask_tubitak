@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from engine import engine,get_product_for_prediction
+from engine import engine,get_product_for_prediction, Connection
 
 
 # Create a Blueprint
@@ -12,19 +12,20 @@ def new_test():
         
         else:
             product_code = request.form.get("product_code")
-            test_method = request.form.get("test_method")
+            test_method = request.form.get("test_function")
             value = request.form.get("value")
-            label = request.form.get("label")
+            label = request.form.get("class")
             product = get_product_for_test_save(product_code)
 
             if not product.empty:
                 
-                product[test_method] = test_method
+                product["test_function"] = test_method
                 product["energy_value"] = value
                 product["energy_class"] = label
-                engine.save(product.to_json())
+                print(product.columns)
+                engine.save_data(product)
                 successes = ["New Test Saved Succesfully"]
-                return render_template("new_test.html", successes = successes)
+                return render_template("new_test.html" )
 
 
             else:
@@ -49,7 +50,9 @@ def save_product():
         error='Ürün Kodunuz Sistemde Bulunamamıştır.'
     if error:
         return render_template('new_product.html',error=error)
+
     
+
     # x=test_kaydet(product_code,energy_consumption,Test_Function)
     kontrol='Veri Kaydedilmiştir'
     return render_template('new_product.html' ,kontrol=kontrol,error=None)

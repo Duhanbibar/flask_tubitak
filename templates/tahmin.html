@@ -1,32 +1,20 @@
 {% extends 'base.html' %}
 {% block title %}Tahmin Et{% endblock %}
 
-
 {% block content %}
 
-        <h3 style="font-size: 40px;">Tahmin Et Sekmesine Hoşgeldiniz</h3>
-        
-        {% include 'product_form_snippet.html' %}
+    <h3 style="font-size: 40px;">Tahmin Et Modülü</h3>
+    
+    {% include 'product_form_snippet.html' %}
 
-            <ul>
+    <ul>
+        {% if kontrol %}
+        <li class="tahmin-sonucu">
+            <div class="kontrol">
+                {{ kontrol }}
+            </div>
+        </li>
+        {% endif %}
+    </ul>
 
-            {% if kontrol %}
-            <li>
-                <li class="tahmin sonucu"></li>
-                    
-                <div class="kontrol">
-                    {{ kontrol }}
-                </div>
-                    
-                </li>
-            {%endif %} 
-            </li>
-            </ul>
-            <span class="or">Yeni Ürün Koduna Göre Tahmin Oluşturmak İster Misin?</span>
-            <a href="" class="form-url">Yeni Ürün Kodu ile Tahmin Et!</a>
-        </form>
-        
-{% endblock content %}
-
-</body>
-</html>
+{% endblock %}

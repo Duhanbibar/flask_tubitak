@@ -11,6 +11,7 @@ def classification_report(product):
         model["prediction"] = model["model"].predict(product)
 
     for model in classifiers["user"]:
+        print(model["model"])
         model["prediction"] = model["model"].predict(product)
     
     return render_template("classification_report.html",bases=classifiers["base"],users=classifiers["user"])

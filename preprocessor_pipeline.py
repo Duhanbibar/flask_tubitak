@@ -7,6 +7,10 @@ import joblib
 from loader import Loader
 from logger import Logger
 from pickle_needs import *
+from sklearn.decomposition import PCA
+from sklearn.compose import make_column_selector
+
+
 
 
 
@@ -43,8 +47,6 @@ ventilation_channel_pipeline = Pipeline(
 ])
 
 columns_to_be_dropped = ["product_code"]
-    
-
 columns_to_be_encoded = ['test_function','pulsation','buffle','cavity_type','bracket_description','function_type']
 
 onehot_encoder_transformer = Pipeline(
@@ -52,6 +54,27 @@ onehot_encoder_transformer = Pipeline(
         ("onehot",OneHotEncoder(handle_unknown = "ignore"))
     ]
 )
+## Cooling Fan PCA
+pca_cooling_fan = Pipeline(
+    steps = [
+        ("pca_cooling_fan",PCA(n_components=1))
+    ]
+)
+
+## Insulation density/thickness PCA
+pca_insulation = Pipeline(
+    steps = [
+        ("pca_insulation",PCA(n_components=1))
+    ]
+)
+
+numeric_scaler = Pipeline(
+    steps=[
+        ("scaler",StandardScaler())
+    ]
+)
+
+from sklearn.decomposition import PCA
 
 preprocessor = ColumnTransformer(
     transformers = [
@@ -59,15 +82,18 @@ preprocessor = ColumnTransformer(
         ("Ventilation Channel", ventilation_channel_pipeline, ['ventilation_channel']),
         ("Cooling Fan Type",cooling_fan_categorical_transformer,cooling_fan_categorical_columns),
         ("Cooling Fan Power and Cooling Fan RPM",cooling_fan_numeric_transformer,cooling_fan_numerical_columns),
-        ("Other Categorical Columns To Be Encoded",onehot_encoder_transformer,columns_to_be_encoded)
-    ],remainder="passthrough")
+        ("Other Categorical Columns To Be Encoded",onehot_encoder_transformer,columns_to_be_encoded),
+        #("scaler", numeric_scaler, make_column_selector(dtype_include=['number'])),  # Apply to all numerical columns
+        #("pca_cooling_fan", pca_cooling_fan,[*cooling_fan_numerical_columns]), ### Pca only transforms numerics for now.
+        #("pca_insulation", pca_insulation,["insulation_density","insulation_thickness"]) ### Pca only transforms numerics for now.
+     ],remainder="passthrough")
+
 
 
 db = get_table(as_df=True)
 X = db.drop(["energy_value","energy_class"],axis =1)
-print(X.shape)
 a = preprocessor.fit_transform(X)
-print(a.shape)
+
 
 joblib.dump(preprocessor,"preprocessors/preprocessor.joblib")
 

@@ -6,7 +6,6 @@ from module_2 import main as module_2
 from module_3 import main as module_3
 from api import main as api
 from main import main 
-
 app = Flask(__name__)
 app.register_blueprint(module_1)
 app.register_blueprint(module_2)

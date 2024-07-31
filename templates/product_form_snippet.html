@@ -22,8 +22,11 @@
             </div>
             <label for="test_function" class="col-sm-2 col-form-label">Test Function</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="test_function" name="test_function"required>
-            </div>
+                <select name="test_function" id="test_function">
+                    <option value="Static Fan">Static Fan</option>
+                    <option value="Cooklight">Cooklight</option>
+                    <option value="Multifunction">Multifunction</option>
+                </select>            </div>
         </div>
         <!-- For 230V Total Working Cycle Power & Pulsation -->
         <div class="form-group row p-2">
@@ -33,18 +36,27 @@
             </div>
             <label for="pulsation" class="col-sm-2 col-form-label">Pulsation</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="pulsation" name="pulsation" required>
-            </div>
+                <select name="pulsation" id="pulsation">
+                    <option value="P">P</option>
+                    <option value="E">E</option>
+                    <option value="N">N</option>
+                </select>             </div>
         </div>
         <!-- Function Type & Buffle -->
         <div class="form-group row p-2">
             <label for="function_type" class="col-sm-2 col-form-label">Function Type</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="function_type" name="function_type" required>
-            </div>
+                <select name="function_type" id="function_type">
+                    <option value="Multifunction">Multifunction</option>
+                    <option value="Fan Assisted">Fan Assisted</option>
+                    <option value="Fan ">Fan Oven</option>
+                </select>            </div>
             <label for="buffle" class="col-sm-2 col-form-label">Buffle</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="buffle" name="buffle" required>
+                <select name="buffle" id="buffle">
+                    <option value="New Eco">New Eco</option>
+                    <option value="CHEF">CHEF</option>
+                </select>              
             </div>
         </div>
         <!-- Insulation Desc. Kg/m³ & Thermal Conductivity -->
@@ -94,7 +106,7 @@
                 <input type="number" class="form-control" id="cavity_fan_rpm" name="cavity_fan_rpm" required>
             </div>
 
-            <label for="cavity_fan_power" class="col-sm-2 col-form-label">Cavity Fan RPM</label>
+            <label for="cavity_fan_power" class="col-sm-2 col-form-label">Cavity Fan Power</label>
             <div class="col-sm-4">
                 <input type="number" class="form-control" id="cavity_fan_power" name="cavity_fan_power" required>
             </div>
@@ -116,7 +128,11 @@
             </div>
             <label for="ventilation_channel" class="col-sm-2 col-form-label">Ventilation Channel</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="ventilation_channel" name="ventilation_channel" required>
+                <select id="ventilation_channel" name="ventilation_channel" class="form-control">
+                    <option value="" >Select Type</option>
+                    <option value="Switch Protection">Switch Protection</option>
+                    <option value="Ventilation Channel ">Ventilation Channel</option>
+                </select>            
             </div>
         </div>
         <!-- Chimney -->
@@ -130,7 +146,11 @@
             </div>
             <label for="bracket_description" class="col-sm-2 col-form-label">bracket_description</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="bracket_description" name="bracket_description" required>
+                <select name="bracket_description" id="bracket_description">
+                    <option value="SP FIX MOTOR BRACKET">SP FIX MOTOR BRACKET</option>
+                    <option value="HAIER BACK TRAVERSE">HAIER BACK TRAVERSE</option>
+                    <option value="SP FIX HALO TRAVERSE">SP FIX HALO TRAVERSE</option>
+                </select>              
             </div>
         </div>
         <!-- Tahminci -->
@@ -149,7 +169,7 @@
         <!-- Submit Button -->
         <div class="form-group row p-2">
             <div class="col-sm-12">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Tahmin Et</button>
             </div>
         </div>
     </div>

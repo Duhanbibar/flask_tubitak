@@ -4,7 +4,7 @@ import pandas as pd
 from loader import singleton
 
 
-database = False
+database = True
 
 if database:
     @singleton
@@ -25,14 +25,16 @@ if database:
                 rows = [row for row in result]
             return pd.DataFrame(rows)
 
-        def save_data(self,data):
+        def get_product(self,model_no):
             with self.engine.connect() as conn:
-                columns = ', '.join(data.keys())
-                values = ', '.join(f":{key}" for key in data.keys())
-                query = text(f"INSERT INTO dbo.data ({columns}) VALUES ({values})")
+                query= text(f"SELECT * from dbo.data where model_no = {model_no} ")
+                result = conn.execute(query).fetchall()
+                rows = [row for row in result]
+            return pd.DataFrame(rows).head(1)
 
-                conn.execute(query, data)
-                conn.commit()
+        def save_data(self,data):
+            print(data)
+            data.to_sql("data",self.engine,if_exists="append",index=False)
 
     engine = Connection()
 

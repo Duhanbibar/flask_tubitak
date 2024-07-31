@@ -1,20 +1,23 @@
 {% extends 'base.html' %}
 {% block title %}Model Eğitimi{% endblock %}
 
+
 {% block content %}
+
 <div class="container mt-3">
+    <h1 class="text-center">Yeniden Eğit Modülü</h1>
     <div class="row">
         <!-- Classifiers Section -->
         <div class="row w-100 p-3">
             {% set type = "classification" %}
-            <div class=" w-100 accordion" id="classifiersAccordion">
-                <div class=" w-100">
+            <div class="w-100 accordion" id="classifiersAccordion">
+                <div class="w-100">
                     <div class="card-header" id="classifiersHeading">
                         <row class="mb-0">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#classifiersCollapse" aria-expanded="true" aria-controls="classifiersCollapse">
-                                Classifiers
+                                Sınıflandırma
                             </button>
-                            <a href={{url_for("module2.retrain_classifiers")}} class="btn btn-link"> Retrain </a>
+                            <a href='{{url_for("module2.retrain_classifiers")}}' class="btn btn-link"> Yeniden Eğit </a>
                         </row>
                     </div>
                     <div id="classifiersCollapse" class="collapse show" aria-labelledby="classifiersHeading" data-parent="#classifiersAccordion">
@@ -27,7 +30,7 @@
                                             <div class="card-header" id="baseModelsHeading">
                                                 <h5 class="mb-0">
                                                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#baseModelsCollapse" aria-expanded="true" aria-controls="baseModelsCollapse">
-                                                        Base Models
+                                                        Baz Modeller
                                                     </button>
                                                 </h5>
                                             </div>
@@ -49,7 +52,7 @@
                                             <div class="card-header" id="userModelsHeading">
                                                 <h5 class="mb-0">
                                                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#userModelsCollapse" aria-expanded="true" aria-controls="userModelsCollapse">
-                                                        User Models
+                                                        Yeniden Eğitilmiş Modeller
                                                     </button>
                                                 </h5>
                                             </div>
@@ -78,22 +81,22 @@
                     <div class="card-header" id="regressorsHeading">
                         <h5 class="mb-0">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#regressorsCollapse" aria-expanded="true" aria-controls="regressorsCollapse">
-                                Regressors
-                                <a href={{url_for("module2.retrain_regressors")}} class="btn btn-link"> Retrain </a>
+                                Regresyon (Nokta Tahmini)      
+                                <a href={{url_for("module2.retrain_regressors")}} class="btn btn-link"> Yeniden Eğit </a>
                             </button>
                         </h5>
                     </div>
                     <div id="regressorsCollapse" class="collapse show" aria-labelledby="regressorsHeading" data-parent="#regressorsAccordion">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-5">
+                                <div class="col-sm-6">
                                     <!-- Base Models -->
                                     <div class="accordion" id="baseRegressorsAccordion">
                                         <div class="card">
                                             <div class="card-header" id="baseRegressorsHeading">
                                                 <h5 class="mb-0">
                                                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#baseRegressorsCollapse" aria-expanded="true" aria-controls="baseRegressorsCollapse">
-                                                        Base Models
+                                                        Baz Modeller
                                                     </button>
                                                 </h5>
                                             </div>
@@ -109,15 +112,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-2"></div>
-                                <div class="col-sm-5">
+                                <div class="col-sm-6">
                                     <!-- User Models -->
                                     <div class="accordion" id="userRegressorsAccordion">
                                         <div class="card">
                                             <div class="card-header" id="userRegressorsHeading">
                                                 <h5 class="mb-0">
                                                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#userRegressorsCollapse" aria-expanded="true" aria-controls="userRegressorsCollapse">
-                                                        User Models
+                                                        Yeniden Eğitilmiş Modeller
                                                     </button>
                                                 </h5>
                                             </div>
